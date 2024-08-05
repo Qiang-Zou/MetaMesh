@@ -1,4 +1,4 @@
-# Meta-meshing and Triangulating for Large Scale Lattice Structures (LatticeTri)
+# LatticeMesher: MetaMeshing and Triangulating Large-Scale Lattice Structures
 
 - By: Yunzhu Gao and Qiang Zou (built on top of Charlie C.L. Wang's MeshWorks)
 -  email: qzou.code@gmail.com
@@ -73,4 +73,3 @@ make
 - [1] Qiang Zou, Yunzhu Gao, Guoyue Luo, Sifan Chen, Meta-meshing and triangulating lattice structures at a large scale. Computer-Aided Design (2024).
 - [2] Yaonaiming Zhao, Qiang Zou, Guoyue Luo, Jiayu Wu, Sifan Chen, TPMS2STEP: error-controlled and C2 continuity-preserving translation of TPMS models to STEP files based on constrained-PIA. Computer-Aided Design (2024).
 - [3] Shengjun Liu, Tao Liu, Qiang Zou, Weiming Wang, Eugeni L. Doubrovski, and Charlie C.L. Wang, "Memory-efficient modeling and slicing of large-scale adaptive lattice structures", ASME Transactions - Journal of Computing and Information Science in Engineering, vol.21, no.6, 061003 (16 pages), May 2021.
-- [4] Junhao Ding, Qiang Zou, Shuo Qu, Paulo Bartolo, Xu Song, Charlie C. L. Wang, STL-free design and manufacturing paradigm for high-precision powder bed fusion. CIRP Annals 70.1 (2021): 167-170.
