@@ -1,4 +1,4 @@
-# LatticeMesher: MetaMeshing and Triangulating Large-Scale Lattice Structures
+# LatticeMesher: MetaMeshing and Triangulating Large-Scale Lattice Structures (Million or Billion Scales)
 
 - By: Yunzhu Gao and Qiang Zou (built on top of Charlie C.L. Wang's MeshWorks)
 -  email: qzou.code@gmail.com
