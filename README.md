@@ -14,7 +14,7 @@ It can be compiled with QT 6.2.4 + GCC 11.4.0 + CUDA 12.2 , and run on the opera
 1.Copyright
 -----------
 
-- LatticeTri is GNU licensed. It is developed and maintained by Yunzhu Gao and Qiang Zou for research use. All rights about the program are reserved by Yunzhu Gao and Qiang Zou. This C++ source codes are available only to a primary user for academic purposes. No secondary use, such as copy, distribution, diversion, business purpose, etc., is allowed. In no event shall the author be liable to any party for direct, indirect, special, incidental, or consequential damage arising out of the use of this program. LatticeTri is self-contained.
+- LatticeMesher is GNU licensed. It is developed and maintained by Yunzhu Gao and Qiang Zou for research use. All rights about the program are reserved by Yunzhu Gao and Qiang Zou. This C++ source codes are available only to a primary user for academic purposes. No secondary use, such as copy, distribution, diversion, business purpose, etc., is allowed. In no event shall the author be liable to any party for direct, indirect, special, incidental, or consequential damage arising out of the use of this program. LatticeMesher is self-contained.
 
 
 2.Download
@@ -22,21 +22,35 @@ It can be compiled with QT 6.2.4 + GCC 11.4.0 + CUDA 12.2 , and run on the opera
 
 - The source code, as well as the test cases, can be downloaded from the page: 
 
-  webpage: https://github.com/Qiang-Zou/LatticeTri/
+  webpage: https://github.com/Qiang-Zou/MetaMesh
 
 3.Installing & Compiling (Windows/Linux/Mac + QT 6.2.4 + GCC 11.4.0 + CUDA 12.2)
 -------------------------------------------
 
 - Install CMake(Version>=3.18) and GCC for build essentials.
-- Download TBB library. Make sure you have set up this library before using this code.
+
+  ```shell
+  sudo apt install build-essential
+  ```
+
+- Download CUDA, QT and TBB library. Please select the appropriate version on the official website.
+
+  QT: https://download.qt.io/archive/qt/
+
+  TBB: https://github.com/oneapi-src/oneTBB
+
+  CUDA: https://developer.nvidia.com/cuda-toolkit-archive
+
+  Before using this code, make sure you have set up relative third-party library's path.
+
 - Download the source code of this project to a suitable place and make sure the paths of QT, CUDA and TBB are correctly set in the environment. Then build this project to obtain the binary executable file in this way (the unix way):
 
-```shell
-mkdir build
-cd build
-cmake ../
-make
-```
+  ```shell
+  mkdir build
+  cd build
+  cmake -DCMAKE_CUDA_COMPILER "your_nvcc_path" -DCMAKE_CUDA_FLAGS="-m64 -arch=sm_86" ..
+  make
+  ```
 
 4.Usage
 -------

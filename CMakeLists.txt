@@ -2,8 +2,6 @@ cmake_minimum_required(VERSION 3.18)
 
 set(CMAKE_CXX_STANDARD 17)
 set(CMAKE_CXX_STANDARD_REQUIRED True)
-set(CUDA_TOOLKIT_ROOT_DIR "/usr/local/cuda-12.2/")
-set(CMAKE_CUDA_COMPILER "/usr/local/cuda-12.2/bin/nvcc")
 set(CMAKE_CUDA_STANDARD 17)
 set(CMAKE_CUDA_STANDARD_REQUIRED ON)
 
@@ -16,13 +14,6 @@ find_package(OpenGL REQUIRED)
 find_package(OpenMP REQUIRED)
 find_package(TBB REQUIRED)
 
-if(OPENMP_FOUND)
-    message("OPENMP FOUND")
-    set(CMAKE_C_FLAGS "${CMAKE_C_FLAGS} ${OpenMP_C_FLAGS}")
-    set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} ${OpenMP_CXX_FLAGS}")
-endif()
-
-
 include_directories(.)
 include_directories(./QMeshLib)
 include_directories(./QMeshLib/OpenMesh)
@@ -30,11 +21,9 @@ include_directories(./GLKLib)
 include_directories(./GLUILib/include)
 include_directories(./Utils)
 include_directories(./LatticeTri/include)
-include_directories(/usr/local/cuda-12.2/include/)
 
 link_directories(/usr/local/lib)
 link_directories(/usr/lib/x86_64-linux-gnu)
-link_directories(/usr/local/cuda-12.2/lib64/)
 
 #########################################################################
 file(GLOB MAIN_SOURCE_FILES "${CMAKE_SOURCE_DIR}/*.cpp")
@@ -59,7 +48,6 @@ file(GLOB TRI_SOURCE
     "${CMAKE_SOURCE_DIR}/LatticeTri/src/*.cpp"
 )
 
-
 add_executable(${PROJECT_NAME} 
     ${MAIN_SOURCE_FILES} 
     ${MAIN_HEADER_FILES} 
@@ -78,25 +66,12 @@ add_executable(${PROJECT_NAME}
     ${TRI_SOURCE}
 )
 
-message(STATUS "src files:")
-foreach(file ${TRI_HEADER})
-        message(STATUS ${file})
-endforeach()
-
-message(STATUS "headers:")
-foreach(dir ${TRI_SOURCE})
-        message(STATUS ${dir})
-endforeach()
-
-
 target_link_libraries(${PROJECT_NAME} GLU glut GLEW)
 target_link_libraries(${PROJECT_NAME} Qt6::Core Qt6::Gui Qt6::Xml)
 target_link_libraries(${PROJECT_NAME} OpenGL::GL)
 target_link_libraries(${PROJECT_NAME} gmp mpfr boost_thread)
 target_link_libraries(${PROJECT_NAME} tbb)
 
-set(CMAKE_CXX_FLAGS "${CMAKE_C_FLAGS} -O3  -fopenmp")
-# openmp and -o3 parrellel
 set_property(TARGET ${PROJECT_NAME} PROPERTY CUDA_SEPARABLE_COMPILATION ON)
 
 set(CMAKE_AUTOMOC ON)
